@@ -18,7 +18,7 @@
 
 class NotificationSubscription < ApplicationRecord
   belongs_to :user
-  validates :identifier, presence: true
+  validates :identifier, presence: true, length: { maximum: Limits::IDENTIFIER_LENGTH_LIMIT }
 
   SUBSCRIPTION_TYPES = {
     browser_push: 1,
